@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личная организация</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <!-- Гамбургер меню -->
@@ -30,8 +31,9 @@
 
     <main>
         <div class="container">
-        <section class="content">
+        
             <h1>Личная организация</h1>
+            <p style="color: red;"><strong>Внимание!</strong></p>
             <p><strong>Все цены указаны в Российских Рублях</strong></p>
             <p><strong>Все, что не указано в прайслисте, обсуждается с консультантом. Цена на дополнительные услуги выносится по решению последнего.</strong></p>
             <h2>Основная цена</h2>
@@ -91,7 +93,7 @@
                     </tr>
                 </tbody>
             </table>
-
+            <h1 style="color: red;">Внимание!</h1>
             <p>Все добавленные профессии включают в себя то же самое, что и основные профессии организации.</p>
             <p>При добавлении профессии, суммарный лимит не увеличивается.</p>
             <p>Все остальные характеристики, оружие, модели и т.п. рассчитываются исходя из ценников для личных профессий, для каждой профессии отряда по отдельности, но со скидкой в 30%.</p>
@@ -101,30 +103,31 @@
                     <a href="privacy.html">Политика конфиденциальности</a>
                 </div>
             </footer>
-        </section>
+        
     </div>
     </main>
     <script>
         $(document).ready(function() {
-            // Toggle dropdown on click
+    // Toggle dropdown on click
+    $('.dropdown-content').hide();
+    $('.menu-toggle').click(function(e) {
+        e.preventDefault();
+        $(this).next('.dropdown-content').toggle(); // Уточнение выбора элемента
+    });
+
+    // Hamburger menu functionality
+    $('.hamburger').click(function() {
+        $('.navigation').toggleClass('open');
+    });
+
+    // Close dropdown when clicking outside
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('.dropdown').length && !$(event.target).is('.menu-toggle')) {
             $('.dropdown-content').hide();
-            $('.menu-toggle').click(function(e) {
-                e.preventDefault();
-                $(this).next().toggle();
-            });
+        }
+    });
+});
 
-            // Hamburger menu functionality
-            $('.hamburger').click(function() {
-                $('.navigation').toggleClass('open');
-            });
-
-            // Close dropdown when clicking outside
-            $(document).on('click', function(event) {
-                if (!$(event.target).closest('.dropdown').length && !$(event.target).is('.menu-toggle')) {
-                    $('.dropdown-content').hide();
-                }
-            });
-        });
     </script>
     
 </body>
