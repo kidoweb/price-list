@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный отряд</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <!-- Гамбургер меню -->
@@ -30,19 +31,19 @@
 
     <main>
         <div class="container">
-        <section class="content">
             <h1>Личный отряд</h1>
+            <p style="color: red;"><strong>Внимание!</strong></p>
             <p><strong>Все цены указаны в Российских Рублях</strong></p>
             <p><strong>Все, что не указано в прайслисте, обсуждается с консультантом. Цена на дополнительные услуги выносится по решению последнего.</strong></p>
             <h2>Основная цена</h2>
             <p><strong>Начальная цена - 4500р</strong></p>
             <p><strong>В стоимость включено:</strong></p>
             <ul>
-                <li>Создание 1 профессии с лимитом 4 на сервере в категории "Личные Профессии" или с приписанием к существующей категории. <strong>Исключение:</strong> БСО, мандалорцы, штаб, правительство, личные организации.</li>
+                <li>Создание 1 профессии с лимитом 4 на сервере в категории "Личные Профессии" или с приписанием к существующей категории. <strong style="color: red;">Исключение:</strong> БСО, мандалорцы, штаб, правительство, личные организации.</li>
                 <li>Выбор 1 модели для профессии из контент-паков сервера.</li>
                 <li>При приписке к существующей организации - выдача стандартных для фракции оружий (например, рация и ключ-карта для ВАР).</li>
                 <li>Стандартный набор характеристики.</li>
-                <li>Выбор одного оружия из имеющихся на сервере. <em>Примечание:</em> В оружии может быть отказано из-за характеристик или по решению консультанта.</li>
+                <li>Выбор одного оружия из имеющихся на сервере. <strong style="color: #6c63ff;">Примечание:</strong> В оружии может быть отказано из-за характеристик или по решению консультанта.</li>
                 <li>Звание при покупке - для командира отряда SGT, для остальных членов отряда PVT. Чтобы получать звания выше, необходимо повышаться по существующему уставу и системе.</li>
             </ul>
 
@@ -94,32 +95,32 @@
                     <a href="privacy.html">Политика конфиденциальности</a>
                 </div>
             </footer>
-    </section>
         </div class="container">
         
     </main>
 
     <script>
         $(document).ready(function() {
-            // Toggle dropdown on click
+    // Toggle dropdown on click
+    $('.dropdown-content').hide();
+    $('.menu-toggle').click(function(e) {
+        e.preventDefault();
+        $(this).next('.dropdown-content').toggle(); // Уточнение выбора элемента
+    });
+
+    // Hamburger menu functionality
+    $('.hamburger').click(function() {
+        $('.navigation').toggleClass('open');
+    });
+
+    // Close dropdown when clicking outside
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('.dropdown').length && !$(event.target).is('.menu-toggle')) {
             $('.dropdown-content').hide();
-            $('.menu-toggle').click(function(e) {
-                e.preventDefault();
-                $(this).next().toggle();
-            });
+        }
+    });
+});
 
-            // Hamburger menu functionality
-            $('.hamburger').click(function() {
-                $('.navigation').toggleClass('open');
-            });
-
-            // Close dropdown when clicking outside
-            $(document).on('click', function(event) {
-                if (!$(event.target).closest('.dropdown').length && !$(event.target).is('.menu-toggle')) {
-                    $('.dropdown-content').hide();
-                }
-            });
-        });
     </script>
     
 </body>
