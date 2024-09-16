@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личные Профессии</title>
+    <title>Прайс Лист Личных Профессий</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -205,5 +205,13 @@
             </div>
         </footer>
     </div>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navigation = document.querySelector('.navigation');
+
+        hamburger.addEventListener('click', () => {
+            navigation.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
