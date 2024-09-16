@@ -1,20 +1,26 @@
+/* Keyframes */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
 @keyframes slideUp {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+
 @keyframes hoverScale {
     from { transform: scale(1); }
     to { transform: scale(1.03); }
 }
+
+/* Global styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: 'Inter', Arial, sans-serif;
     background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
@@ -28,6 +34,7 @@ body {
     align-items: center;
     min-height: 100vh;
 }
+
 .container {
     max-width: 900px;
     background-color: #ffffff;
@@ -37,6 +44,8 @@ body {
     animation: slideUp 0.6s ease forwards;
     transition: all 0.3s ease;
 }
+
+/* Headings */
 h1, h2 {
     color: #222;
     margin-bottom: 24px;
@@ -45,6 +54,7 @@ h1, h2 {
     position: relative;
     padding-bottom: 12px;
 }
+
 h1::before, h2::before {
     content: '';
     position: absolute;
@@ -56,9 +66,12 @@ h1::before, h2::before {
     border-radius: 2px;
     transition: width 0.4s ease;
 }
+
 h1:hover::before, h2:hover::before {
     width: 70%;
 }
+
+/* List styling */
 ul {
     list-style-type: none;
     margin-bottom: 24px;
@@ -67,6 +80,7 @@ ul {
     gap: 20px;
     justify-content: space-between;
 }
+
 ul li {
     margin-bottom: 10px;
     width: calc(50% - 10px);
@@ -76,14 +90,18 @@ ul li {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.4s ease, background-color 0.3s ease;
 }
+
 ul li:hover {
     transform: translateY(-5px);
     background-color: #f0f0f0;
 }
+
+/* Table styling */
 .table-wrapper {
     overflow-x: auto;
     margin-bottom: 24px;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -92,26 +110,33 @@ table {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
+
 table th, table td {
     border: 1px solid #e0e0e0;
     padding: 14px;
     text-align: left;
     transition: all 0.3s ease;
 }
+
 table th {
     background-color: #fafafa;
     color: #333;
     font-weight: 600;
 }
+
 table td {
     background-color: #fff;
 }
+
 table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+
 table tr:hover {
     background-color: #f1f1f1;
 }
+
+/* Footer styling */
 footer {
     text-align: center;
     margin-top: 40px;
@@ -120,15 +145,18 @@ footer {
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
+
 footer p {
     font-size: 14px;
     opacity: 0.8;
     transition: opacity 0.4s ease;
 }
+
 footer p:hover {
     opacity: 1;
 }
-/* Background decoration: subtle stars or particles */
+
+/* Background decoration */
 body::after {
     content: '';
     position: absolute;
@@ -140,26 +168,30 @@ body::after {
     background: url('https://www.transparenttextures.com/patterns/stardust.png');
     opacity: 0.2;
 }
-/* Контейнер для заголовка и навигации */
-/* Стили для навигационного меню */
+
+/* Navigation container */
 .navigation {
     position: fixed;
     top: 20px;
     right: 80px;
     z-index: 1000;
 }
+
 .navigation ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
+
 .navigation ul li {
     margin-left: 20px;
 }
+
 .navigation ul li:first-child {
     margin-left: 0;
 }
+
 .navigation ul li a {
     font-size: 16px;
     text-decoration: none;
@@ -168,15 +200,18 @@ body::after {
     padding: 10px 20px;
     transition: color 0.3s ease, transform 0.3s ease;
 }
+
 .navigation ul li a:hover {
     color: #4a42c4;
     transform: scale(1.05);
 }
-/* Стили для выпадающего меню */
+
+/* Dropdown menu */
 .dropdown {
     display: inline-flex;
     position: relative;
 }
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -187,25 +222,29 @@ body::after {
     min-width: 160px;
     z-index: 1;
 }
+
 .dropdown-content a {
     display: block;
     padding: 12px 16px;
     color: #6c63ff;
     text-align: left;
 }
+
 .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
-/* Основные стили для десктопа остаются прежними */
-/* Адаптация для мобильных устройств */
+
+/* Responsive design (continued) */
 @media (max-width: 768px) {
     .navigation {
         top: 10px;
         right: 20px;
     }
+
     .navigation ul {
         flex-direction: column;
         align-items: flex-start;
@@ -220,10 +259,13 @@ body::after {
         transition: transform 0.3s ease;
         box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     }
+
     .navigation ul li {
         margin-left: 0;
+        margin-bottom: 10px;
         width: 100%;
     }
+
     .navigation ul li a {
         display: block;
         padding: 15px 20px;
@@ -231,7 +273,8 @@ body::after {
         text-align: left;
         font-size: 18px;
     }
-    /* Гамбургер иконка */
+
+    /* Hamburger icon */
     .hamburger {
         display: block;
         cursor: pointer;
@@ -241,69 +284,53 @@ body::after {
         right: 20px;
         z-index: 1001;
     }
-    /* Скрытие меню по умолчанию */
+
+    /* Hide menu by default */
     .navigation.open ul {
         transform: translateX(0);
     }
-}
-/* Иконка гамбургера */
-.hamburger span {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background-color: #6c63ff;
-    margin: 6px 0;
-    transition: all 0.4s ease;
-}
-/* Изменение гамбургера при открытом меню */
-.navigation.open .hamburger span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-.navigation.open .hamburger span:nth-child(2) {
-    opacity: 0;
-}
-.navigation.open .hamburger span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-}
-/* Стили для гамбургера (мобильные устройства) */
-.hamburger {
-    display: none; /* Скрыто на компьютере */
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 24px;
-    cursor: pointer;
-}
 
-.hamburger span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: #333;
-    border-radius: 2px;
-}
-/* Показываем гамбургер только на мобильных устройствах */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    /* Делаем навигацию скрытой по умолчанию */
-    .navigation {
-        display: none;
-    }
-
-    /* Показываем навигацию при нажатии на гамбургер */
-    .navigation.open {
+    /* Hamburger animation */
+    .hamburger span {
         display: block;
+        width: 30px;
+        height: 3px;
+        background-color: #6c63ff;
+        margin: 6px 0;
+        transition: all 0.4s ease;
     }
 
-    .navigation ul {
-        flex-direction: column;
+    /* Open hamburger animation */
+    .navigation.open .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
     }
 
-    .navigation ul li {
-        margin-left: 0;
-        margin-bottom: 10px;
+    .navigation.open .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navigation.open .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Show hamburger on mobile devices */
+    @media (max-width: 768px) {
+        .hamburger {
+            display: flex;
+        }
+
+        /* Show navigation when hamburger is clicked */
+        .navigation.open {
+            display: block;
+        }
+
+        .navigation ul {
+            flex-direction: column;
+        }
+
+        .navigation ul li {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
     }
 }
