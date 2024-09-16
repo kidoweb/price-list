@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="hamburger" onclick="toggleMenu()">
+    <div class="hamburger">
         <span></span>
         <span></span>
         <span></span>
@@ -17,7 +17,7 @@
     <div class="navigation">
         <ul>
             <li class="dropdown">
-                <a href="javascript:void(0)">Меню</a>
+                <a href="javascript:void(0)" class="menu-toggle">Меню</a>
                 <div class="dropdown-content">
                     <a href="index.html">Личные Профессии</a>
                     <a href="squads.html">Личные Отряды</a>
@@ -205,16 +205,26 @@
         </footer>
     </div>
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navigation = document.querySelector('.navigation');
+        $(document).ready(function() {
+            // Toggle dropdown on click
+            $('.dropdown-content').hide();
+            $('.menu-toggle').click(function(e) {
+                e.preventDefault();
+                $(this).next().toggle();
+            });
 
-        hamburger.addEventListener('click', () => {
-            navigation.classList.toggle('open');
+            // Hamburger menu functionality
+            $('.hamburger').click(function() {
+                $('.navigation').toggleClass('open');
+            });
+
+            // Close dropdown when clicking outside
+            $(document).on('click', function(event) {
+                if (!$(event.target).closest('.dropdown').length && !$(event.target).is('.menu-toggle')) {
+                    $('.dropdown-content').hide();
+                }
+            });
         });
-        function toggleMenu() {
-    document.querySelector('.navigation').classList.toggle('open');
-}
-
     </script>
 </body>
 </html>
