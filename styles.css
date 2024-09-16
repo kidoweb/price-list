@@ -164,11 +164,17 @@ body::after {
 }
 
 .navigation {
-    display: block; /* Убедитесь, что навигация отображается */
+    display: flex; /* Changed from block to flex */
     position: fixed;
     top: 20px;
     right: 80px;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.navigation.open {
+    transform: translateX(250px); /* Added translation for mobile view */
 }
 
 .navigation ul {
@@ -176,6 +182,8 @@ body::after {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .navigation ul li {
@@ -247,71 +255,12 @@ body::after {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
     .navigation {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 250px;
-        background-color: #ffffff;
-        padding-top: 60px;
-        transition: transform 0.3s ease;
-        transform: translateX(100%);
-        z-index: 1000;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .navigation.open {
-        display: block;
-        transform: translateX(0);
-    }
-
-    .navigation ul {
-        flex-direction: column;
-        align-items: flex-start;
-        background-color: #ffffff;
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100%;
-    }
-    .navigation ul li a {
-        display: block;
-        padding: 15px 20px;
-        width: 100%;
-        text-align: left;
-        font-size: 18px;
-    }
-    
-    .navigation ul li a:hover {
-        color: #4a42c4;
-        transform: scale(1.05);
-    }
-    
-    .hamburger {
-        display: flex; /* Показываем гамбургер */;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-    }
-    
-    .hamburger span {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: #333;
-        border-radius: 2px;
-        transition: all 0.4s ease;
-    }
-    
-    /* Основные стили для десктопа остаются прежними */
-
-/* Адаптация для мобильных устройств */
-@media (max-width: 768px) {
-    .navigation {
-        display: none;
+        display: flex;
         position: fixed;
         top: 0;
         right: 0;
@@ -368,7 +317,7 @@ body::after {
         transform: scale(1.05);
     }
 
-    /* Показываем гамбургер по умолчанию */
+    /* Show hamburger menu by default */
     .hamburger {
         display: flex;
         position: absolute;
@@ -386,7 +335,7 @@ body::after {
         transition: all 0.4s ease;
     }
 
-    /* Изменение гамбургера при открытом меню */
+    /* Change hamburger when menu is open */
     .navigation.open .hamburger span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
@@ -398,6 +347,4 @@ body::after {
     .navigation.open .hamburger span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
     }
-}
- 
 }
