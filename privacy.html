@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Политика конфиденциальности</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <!-- Гамбургер меню -->
@@ -53,26 +54,27 @@
         </footer>
     </div>
     <script>
-        $(document).ready(function() {
-            // Toggle dropdown on click
+       $(document).ready(function() {
+    // Toggle dropdown on click
+    $('.dropdown-content').hide();
+    $('.menu-toggle').click(function(e) {
+        e.preventDefault();
+        $(this).next('.dropdown-content').toggle(); // Уточнение выбора элемента
+    });
+
+    // Hamburger menu functionality
+    $('.hamburger').click(function() {
+        $('.navigation').toggleClass('open');
+    });
+
+    // Close dropdown when clicking outside
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('.dropdown').length && !$(event.target).is('.menu-toggle')) {
             $('.dropdown-content').hide();
-            $('.menu-toggle').click(function(e) {
-                e.preventDefault();
-                $(this).next().toggle();
-            });
+        }
+    });
+});
 
-            // Hamburger menu functionality
-            $('.hamburger').click(function() {
-                $('.navigation').toggleClass('open');
-            });
-
-            // Close dropdown when clicking outside
-            $(document).on('click', function(event) {
-                if (!$(event.target).closest('.dropdown').length && !$(event.target).is('.menu-toggle')) {
-                    $('.dropdown-content').hide();
-                }
-            });
-        });
     </script>
 </body>
 </html>
