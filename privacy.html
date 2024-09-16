@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Гамбургер меню -->
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <!-- Навигационное меню -->
     <div class="navigation">
         <ul>
@@ -46,5 +52,13 @@
             <p >Этот документ представляет собой вымышленную политику конфиденциальности. Все содержимое данного документа является фикцией и не отражает реальных практик сбора или использования данных. Этот сайт предназначен исключительно для развлекательных целей.</p>
         </footer>
     </div>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navigation = document.querySelector('.navigation');
+
+        hamburger.addEventListener('click', () => {
+            navigation.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
