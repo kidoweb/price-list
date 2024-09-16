@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Гамбургер меню -->
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <!-- Навигационное меню -->
     <div class="navigation">
         <ul>
@@ -27,7 +33,7 @@
         <section class="content">
             <h1>Личный отряд</h1>
             <p><strong>Все цены указаны в Российских Рублях</strong></p>
-            <p><strong>Все, что не указано в прайс листе, обсуждается с консультантом. Цена на дополнительные услуги выносится по решению последнего.</strong></p>
+            <p><strong>Все, что не указано в прайслисте, обсуждается с консультантом. Цена на дополнительные услуги выносится по решению последнего.</strong></p>
             <h2>Основная цена</h2>
             <p><strong>Начальная цена - 4500р</strong></p>
             <p><strong>В стоимость включено:</strong></p>
@@ -93,7 +99,14 @@
         
     </main>
 
-    
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navigation = document.querySelector('.navigation');
+
+        hamburger.addEventListener('click', () => {
+            navigation.classList.toggle('open');
+        });
+    </script>
     
 </body>
 </html>
