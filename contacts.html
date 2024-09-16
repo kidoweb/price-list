@@ -17,7 +17,7 @@
     <div class="navigation">
         <ul>
             <li class="dropdown">
-                <a href="javascript:void(0)">Меню</a>
+                <a href="javascript:void(0)" class="menu-toggle">Меню</a>
                 <div class="dropdown-content">
                     <a href="index.html">Личные Профессии</a>
                     <a href="squads.html">Личные Отряды</a>
@@ -61,12 +61,27 @@
             </footer>
         </section>
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navigation = document.querySelector('.navigation');
+        $(document).ready(function() {
+            // Toggle dropdown on click
+            $('.dropdown-content').hide();
+            $('.menu-toggle').click(function(e) {
+                e.preventDefault();
+                $(this).next().toggle();
+            });
 
-        hamburger.addEventListener('click', () => {
-            navigation.classList.toggle('open');
+            // Hamburger menu functionality
+            $('.hamburger').click(function() {
+                $('.navigation').toggleClass('open');
+            });
+
+            // Close dropdown when clicking outside
+            $(document).on('click', function(event) {
+                if (!$(event.target).closest('.dropdown').length && !$(event.target).is('.menu-toggle')) {
+                    $('.dropdown-content').hide();
+                }
+            });
         });
     </script>
 </body>
