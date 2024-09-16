@@ -33,8 +33,10 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    position: relative;
 }
 
+/* Container */
 .container {
     max-width: 900px;
     background-color: #ffffff;
@@ -173,7 +175,7 @@ body::after {
 .navigation {
     position: fixed;
     top: 20px;
-    right: 80px;
+    right: 20px;
     z-index: 1000;
 }
 
@@ -238,7 +240,7 @@ body::after {
     display: block;
 }
 
-/* Responsive design (continued) */
+/* Responsive design */
 @media (max-width: 768px) {
     .navigation {
         top: 10px;
