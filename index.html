@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Прайс Лист Личных Профессий</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="hamburger">
@@ -29,6 +30,7 @@
     </div>
     <div class="container">
         <h1>Личная профессия</h1>
+        <p style="color: red;"><strong>Внимание!</strong></p>
         <p><strong>Все цены указаны в Российских Рублях.</strong></p>
         <p><strong>Все, что не указано в прайслисте обсуждается с консультантом. Цена на дополнительные услуги выносится по решению последнего.</strong></p>
 
@@ -37,11 +39,11 @@
             <p><strong>Начальная цена - 1800 р.</strong></p>
             <p><strong>В стоимость включено:</strong></p>
             <ul>
-                <li>Создание профессии с лимитом 1 на сервере в категории "Личные Профессии" или с приписанием к существующей категории (Исключения: БСО, мандалорцы, штаб, правительство, личные организации)</li>
+                <li>Создание профессии с лимитом 1 на сервере в категории "Личные Профессии" или с приписанием к существующей категории (<strong style="color:red;">Исключение:</strong> БСО, мандалорцы, штаб, правительство, личные организации)</li>
                 <li>Выбор модели из контент-паков сервера</li>
                 <li>Выдача стандартных для фракции оружий при приписке к существующей организации (например, рация и ключ-карта для ВАР)</li>
                 <li>Стандартный набор характеристик</li>
-                <li>Выбор одного оружия из имеющихся на сервере (Примечание: в оружии может быть отказано из-за характеристик или по решению консультанта)</li>
+                <li>Выбор одного оружия из имеющихся на сервере (<strong style="color: #6c63ff;">Примечание:</strong> в оружии может быть отказано из-за характеристик или по решению консультанта)</li>
                 <li>Звание при покупке - PVT (CPL для БСО)</li>
             </ul>
         </section>
@@ -146,10 +148,10 @@
                 <li>АРК (Альфа) — 650 р.</li>
                 <li>Джедай (Не лорный) — 2800 р.</li>
                 <li>Лорный персонаж — 1000 р.</li>
-                <li>Джедай (Лорный) — НЕ ПРОДАЕТСЯ</li>
+                <li>Джедай (Лорный) — <strong style="color: red;">НЕ ПРОДАЕТСЯ</strong></li>
                 <li>Мандалорец — 650 р.</li>
                 <li>БСО (исключая АРК) — 750 р.</li>
-                <li>Штаб — НЕ ПРОДАЕТСЯ</li>
+                <li>Штаб — <strong style="color: red;">НЕ ПРОДАЕТСЯ</strong></li>
                 <li>Правительство — 500 р.</li>
                 <li>Личная организация — По решению владельца</li>
             </ul>
@@ -206,25 +208,26 @@
     </div>
     <script>
         $(document).ready(function() {
-            // Toggle dropdown on click
+    // Toggle dropdown on click
+    $('.dropdown-content').hide();
+    $('.menu-toggle').click(function(e) {
+        e.preventDefault();
+        $(this).next('.dropdown-content').toggle(); // Уточнение выбора элемента
+    });
+
+    // Hamburger menu functionality
+    $('.hamburger').click(function() {
+        $('.navigation').toggleClass('open');
+    });
+
+    // Close dropdown when clicking outside
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('.dropdown').length && !$(event.target).is('.menu-toggle')) {
             $('.dropdown-content').hide();
-            $('.menu-toggle').click(function(e) {
-                e.preventDefault();
-                $(this).next().toggle();
-            });
+        }
+    });
+});
 
-            // Hamburger menu functionality
-            $('.hamburger').click(function() {
-                $('.navigation').toggleClass('open');
-            });
-
-            // Close dropdown when clicking outside
-            $(document).on('click', function(event) {
-                if (!$(event.target).closest('.dropdown').length && !$(event.target).is('.menu-toggle')) {
-                    $('.dropdown-content').hide();
-                }
-            });
-        });
     </script>
 </body>
 </html>
