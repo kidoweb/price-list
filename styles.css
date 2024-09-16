@@ -164,6 +164,7 @@ body::after {
 }
 
 .navigation {
+    display: block; /* Убедитесь, что навигация отображается */
     position: fixed;
     top: 20px;
     right: 80px;
@@ -289,7 +290,7 @@ body::after {
     }
     
     .hamburger {
-        display: none;
+        display: flex; /* Показываем гамбургер */;
         position: absolute;
         top: 20px;
         right: 20px;
@@ -305,74 +306,98 @@ body::after {
         transition: all 0.4s ease;
     }
     
-    @media (max-width: 768px) {
-        .navigation {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: 250px;
-            background-color: #ffffff;
-            padding-top: 60px;
-            transition: transform 0.3s ease;
-            transform: translateX(100%);
-            z-index: 1000;
-            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-        }
-    
-        .navigation.open {
-            display: block;
-            transform: translateX(0);
-        }
-    
-        .navigation ul {
-            flex-direction: column;
-            align-items: flex-start;
-            background-color: #ffffff;
-            position: fixed;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: 250px;
-            padding-top: 60px;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-        }
-    
-        .navigation ul li {
-            margin-left: 0;
-            padding: 15px;
-            width: 100%;
-        }
-    
-        .navigation ul li:first-child {
-            margin-left: 0;
-        }
-    
-        .navigation ul li a {
-            display: block;
-            padding: 15px 20px;
-            width: 100%;
-            text-align: left;
-            font-size: 18px;
-        }
-    
-        .hamburger {
-            display: flex;
-        }
-    
-        .hamburger span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-    
-        .hamburger span:nth-child(2) {
-            opacity: 0;
-        }
-    
-        .hamburger span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
+    /* Основные стили для десктопа остаются прежними */
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .navigation {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 250px;
+        background-color: #ffffff;
+        padding-top: 60px;
+        transition: transform 0.3s ease;
+        transform: translateX(100%);
+        z-index: 1000;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     }
-}    
+
+    .navigation.open {
+        display: block;
+        transform: translateX(0);
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #ffffff;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 250px;
+        padding-top: 60px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navigation ul li {
+        margin-left: 0;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .navigation ul li:first-child {
+        margin-left: 0;
+    }
+
+    .navigation ul li a {
+        display: block;
+        padding: 15px 20px;
+        width: 100%;
+        text-align: left;
+        font-size: 18px;
+    }
+
+    .navigation ul li a:hover {
+        color: #4a42c4;
+        transform: scale(1.05);
+    }
+
+    /* Показываем гамбургер по умолчанию */
+    .hamburger {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+        border-radius: 2px;
+        transition: all 0.4s ease;
+    }
+
+    /* Изменение гамбургера при открытом меню */
+    .navigation.open .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .navigation.open .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navigation.open .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+ 
+}
