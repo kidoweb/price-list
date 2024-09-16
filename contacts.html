@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Гамбургер меню -->
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <!-- Навигационное меню -->
     <div class="navigation">
         <ul>
@@ -55,6 +61,13 @@
             </footer>
         </section>
     </main>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navigation = document.querySelector('.navigation');
 
+        hamburger.addEventListener('click', () => {
+            navigation.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
