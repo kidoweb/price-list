@@ -316,23 +316,21 @@ body::after {
     }
 
     /* Show hamburger on mobile devices */
-    @media (max-width: 768px) {
-        .hamburger {
-            display: flex;
-        }
+    .hamburger {
+        display: flex;
+    }
 
-        /* Show navigation when hamburger is clicked */
-        .navigation.open {
-            display: block;
-        }
+    /* Show navigation when hamburger is clicked */
+    .navigation.open {
+        display: block;
+    }
 
-        .navigation ul {
-            flex-direction: column;
-        }
+    .navigation ul {
+        flex-direction: column;
+    }
 
-        .navigation ul li {
-            margin-left: 0;
-            margin-bottom: 10px;
-        }
+    .navigation ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
     }
 }
